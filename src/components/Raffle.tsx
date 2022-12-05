@@ -1,10 +1,10 @@
 import Lottie from "lottie-react";
 import MarryChristmas from "../assets/anim/merry_christmas.json";
-import Burst from "../assets/anim/burst.json";
-import Burst2 from "../assets/anim/burst_2.json";
 import { GiftForm } from "./GiftForm";
 import GiftBoxLoading from "./GiftBoxLoading";
 import Logo from "./Logo";
+import Group2 from "../assets/img/Group-2.svg";
+import Group from "../assets/img/Group.svg";
 
 const Raffle = () => {
   return (
@@ -21,11 +21,8 @@ const Raffle = () => {
           className="relative w-1/3 bottom-17"
         />
       </div>
-      <Lottie animationData={Burst} className="absolute right-0 w-48" />
-      <Lottie
-        animationData={Burst2}
-        className="absolute bottom-36 left-20 w-24"
-      />
+      <img className="absolute right-0 w-48" src={Group2} alt="burst" />
+      <img className="absolute bottom-36 left-20 w-24" src={Group} alt="burst" />
     </div>
   );
 };

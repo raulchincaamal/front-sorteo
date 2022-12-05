@@ -5,15 +5,27 @@ import { IWinningPerson } from "../interfaces";
 import Logo from "./Logo";
 import WinningPerson from "./WinningPerson";
 import coco06 from "../assets/img/coco_06.png";
+import { useState } from "react";
+import { downloadWins } from "../api/raffleAPI";
+import { downloadFile } from "../utils";
 
 const WinningPeople = () => {
   const navigate = useNavigate();
+  const [disabled, setDisabled] = useState(false);
   const giftName = localStorage.getItem("gift-name");
   const winningPeople = (JSON.parse(
     localStorage.getItem("winning-people") || ""
   ) || []) as IWinningPerson[];
 
   const containsMorePeople = winningPeople.length > 5;
+
+  const handleDownloadWinningPeople = async(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    setDisabled(true);
+    const { data } = await downloadWins();
+    downloadFile(data);
+    setDisabled(false);
+  }
 
   return (
     <div className="relative flex flex-col items-center pt-8 p-6 min-h-screen bg-white">
@@ -44,7 +56,7 @@ const WinningPeople = () => {
         )}
       </div>
       <div className="flex gap-4 flex-col md:flex-row">
-        <button className="btn-secondary w-64 z-10 text-primary-macro flex gap-1">
+        <button className="btn-secondary w-64 z-10 text-primary-macro flex gap-1" onClick={handleDownloadWinningPeople} disabled={disabled}>
           <span>Lista de ganadores</span>
           <svg
             width="14"
@@ -59,7 +71,7 @@ const WinningPeople = () => {
             />
           </svg>
         </button>
-        <button className="btn-primary w-64 z-10" onClick={() => navigate("/")}>
+        <button className="btn-primary w-64 z-10" onClick={() => navigate("/")} disabled={disabled}>
           Nuevo sorteo
         </button>
       </div>

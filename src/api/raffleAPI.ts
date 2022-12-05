@@ -10,3 +10,5 @@ export const generateWins = ({ name, giftsAvailable }: IGiftForm) =>
     regalo: name,
     participantes: giftsAvailable,
   });
+
+export const downloadWins = () => baseApi.get('/sorteo/exportar', { responseType: 'blob' })
