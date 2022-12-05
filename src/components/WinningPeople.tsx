@@ -41,7 +41,7 @@ const WinningPeople = () => {
       </div>
       <div
         className={`grid ${
-          containsMorePeople ? "grid-cols-2 gap-2 pr-8 auto-rows-max" : ""
+          containsMorePeople ? "grid-cols-2 gap-x-4 gap-y-4 auto-rows-max" : ""
         } mb-4 h-81 overflow-auto z-10`}
       >
         {winningPeople.map(

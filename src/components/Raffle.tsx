@@ -21,7 +21,7 @@ const Raffle = () => {
           className="relative w-1/3 bottom-17"
         />
       </div>
-      <img className="absolute right-0 w-48" src={Group2} alt="burst" />
+      <img className="absolute right-16 top-16 w-48" src={Group2} alt="burst" />
       <img className="absolute bottom-36 left-20 w-24" src={Group} alt="burst" />
     </div>
   );
