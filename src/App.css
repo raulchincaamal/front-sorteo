@@ -1,0 +1,41 @@
+.text-style {
+  font-family: "Avenir LT Std";
+  font-style: normal;
+  font-weight: 700;
+  /* Grays/Gray-07 */
+  color: #4b5468;
+}
+
+.btn-primary,
+.btn-secondary {
+  border-radius: 4px;
+  line-height: 100%;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 14px 32px;
+}
+
+
+.btn-primary {
+  background: #0047ba;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: #FFFFFF;
+  border: 1px solid #0047BA;
+}
+
+.custom-background {
+  background: linear-gradient(180deg, #0038AE 0%, #2474AF 100%);
+}
+
+.bottom-17 {
+  bottom: 4.5rem;
+}
