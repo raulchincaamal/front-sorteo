@@ -27,7 +27,8 @@ const WinningPeople = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center pt-4 p-6 min-h-screen" style={{ backgroundImage: 'url(../../src/assets/img/background.png)', backgroundRepeat: 'no-repeat' }}>
+    <div className="relative flex flex-col items-center pt-4 p-6 min-h-screen" style={
+      { backgroundImage: 'url(../../src/assets/img/background.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
       <div className="flex gap-4 absolute z-0 top-0 bottom-0">
         <Lottie animationData={Confetti} className="w-100" />
         <Lottie animationData={Confetti} className="w-100" />
