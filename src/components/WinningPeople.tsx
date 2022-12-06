@@ -2,9 +2,8 @@ import Lottie from "lottie-react";
 import { useNavigate } from "react-router-dom";
 import Confetti from "../assets/anim/confetti.json";
 import { IWinningPerson } from "../interfaces";
-import Logo from "./Logo";
 import WinningPerson from "./WinningPerson";
-import coco06 from "../assets/img/coco_06.png";
+import macroLogo from "../assets/img/macro-logo.png";
 import { useState } from "react";
 import { downloadWins } from "../api/raffleAPI";
 import { downloadFile } from "../utils";
@@ -28,20 +27,19 @@ const WinningPeople = () => {
   }
 
   return (
-    <div className="relative flex flex-col items-center pt-8 p-6 min-h-screen bg-white">
-      <img className="absolute w-96 bottom-4 right-0" src={coco06} alt="coco" />
+    <div className="relative flex flex-col items-center pt-4 p-6 min-h-screen" style={{ backgroundImage: 'url(../../src/assets/img/background.png)', backgroundRepeat: 'no-repeat' }}>
       <div className="flex gap-4 absolute z-0 top-0 bottom-0">
         <Lottie animationData={Confetti} className="w-100" />
         <Lottie animationData={Confetti} className="w-100" />
       </div>
       <div className="flex flex-col items-center mb-6">
-        <Logo width="350" />
-        <h2 className="text-4xl font-bold mt-3">Ganadores</h2>
+        <img className="w-60" src={macroLogo} alt="macroLogo" />
+        <h2 className="text-4xl font-bold mt-6">Ganadores</h2>
         <h5 className="text-style text-2xl">Premio: {giftName}</h5>
       </div>
       <div
-        className={`grid ${
-          containsMorePeople ? "grid-cols-2 gap-x-4 gap-y-4 auto-rows-max" : ""
+        className={`${
+          containsMorePeople ? "grid grid-cols-2 gap-x-4 gap-y-4 auto-rows-max" : "flex flex-col gap-4"
         } mb-4 h-81 overflow-auto z-10`}
       >
         {winningPeople.map(
