@@ -2,7 +2,7 @@ import axios from "axios";
 import { IGiftForm } from "../interfaces";
 
 const baseApi = axios.create({
-  baseURL: "https://z20bt3i5pe.execute-api.us-east-1.amazonaws.com/dev/api",
+  baseURL: "http://3.80.182.17:3000/api",
 });
 
 export const generateWins = ({ name, giftsAvailable }: IGiftForm) =>
