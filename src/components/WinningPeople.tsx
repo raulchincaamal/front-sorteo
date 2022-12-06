@@ -1,34 +1,38 @@
-import Lottie from "lottie-react";
-import { useNavigate } from "react-router-dom";
-import Confetti from "../assets/anim/confetti.json";
-import { IWinningPerson } from "../interfaces";
-import WinningPerson from "./WinningPerson";
-import macroLogo from "../assets/img/macro-logo.png";
-import { useState } from "react";
-import { downloadWins } from "../api/raffleAPI";
-import { downloadFile } from "../utils";
+import Lottie from 'lottie-react';
+import { useNavigate } from 'react-router-dom';
+import Confetti from '../assets/anim/confetti.json';
+import { IWinningPerson } from '../interfaces';
+import WinningPerson from './WinningPerson';
+import macroLogo from '../assets/img/macro-logo.png';
+import { useState } from 'react';
+import { downloadWins } from '../api/raffleAPI';
+import { downloadFile } from '../utils';
 
 const WinningPeople = () => {
   const navigate = useNavigate();
   const [disabled, setDisabled] = useState(false);
-  const giftName = localStorage.getItem("gift-name");
+  const giftName = localStorage.getItem('gift-name');
   const winningPeople = (JSON.parse(
-    localStorage.getItem("winning-people") || ""
+    localStorage.getItem('winning-people') || ''
   ) || []) as IWinningPerson[];
 
   const containsMorePeople = winningPeople.length > 5;
 
-  const handleDownloadWinningPeople = async(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleDownloadWinningPeople = async (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     event.preventDefault();
     setDisabled(true);
     const { data } = await downloadWins();
     downloadFile(data);
     setDisabled(false);
-  }
+  };
 
   return (
-    <div className="relative flex flex-col items-center pt-4 p-6 min-h-screen" style={
-      { backgroundImage: 'url(../../src/assets/img/background.png)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover' }}>
+    <div
+      className="relative flex flex-col items-center pt-4 p-6 min-h-screen bg-no-repeat bg-center bg-cover"
+      style={{ backgroundImage: 'url(../../src/assets/img/background.png)' }}
+    >
       <div className="flex gap-4 absolute z-0 top-0 bottom-0">
         <Lottie animationData={Confetti} className="w-100" />
         <Lottie animationData={Confetti} className="w-100" />
@@ -40,7 +44,9 @@ const WinningPeople = () => {
       </div>
       <div
         className={`${
-          containsMorePeople ? "grid grid-cols-2 gap-x-4 gap-y-4 auto-rows-max" : "flex flex-col gap-4"
+          containsMorePeople
+            ? 'grid grid-cols-2 gap-x-4 gap-y-4 auto-rows-max'
+            : 'flex flex-col gap-4'
         } mb-4 h-81 overflow-auto z-10`}
       >
         {winningPeople.map(
@@ -55,7 +61,11 @@ const WinningPeople = () => {
         )}
       </div>
       <div className="flex gap-4 flex-col md:flex-row">
-        <button className="btn-secondary w-64 z-10 text-primary-macro flex gap-1" onClick={handleDownloadWinningPeople} disabled={disabled}>
+        <button
+          className="btn-secondary w-64 z-10 text-primary-macro flex gap-1"
+          onClick={handleDownloadWinningPeople}
+          disabled={disabled}
+        >
           <span>Lista de ganadores</span>
           <svg
             width="14"
@@ -70,7 +80,11 @@ const WinningPeople = () => {
             />
           </svg>
         </button>
-        <button className="btn-primary w-64 z-10" onClick={() => navigate("/")} disabled={disabled}>
+        <button
+          className="btn-primary w-64 z-10"
+          onClick={() => navigate('/')}
+          disabled={disabled}
+        >
           Nuevo sorteo
         </button>
       </div>
