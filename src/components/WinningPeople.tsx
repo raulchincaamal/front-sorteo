@@ -22,10 +22,11 @@ const WinningPeople = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    setDisabled(true);
-    const { data } = await downloadWins();
-    downloadFile(data);
-    setDisabled(false);
+    // setDisabled(true);
+    // const { data } = await downloadWins();
+    // downloadFile(data);
+    // setDisabled(false);
+    window.open('http://3.80.182.17:3000/api/sorteo/exportar');
   };
 
   return (
