@@ -24,7 +24,7 @@ export const GiftForm = () => {
 
     const formData = new FormData(event.target as any);
     const { name, giftsAvailable } = Object.fromEntries(formData) as unknown as IGiftForm;
-    if (name.trim() && giftsAvailable !== 0) {
+    if (name.trim() && giftsAvailable) {
       localStorage.setItem("gift-name", name.trim());
       generateWinsMutation.mutate({ name: name.trim(), giftsAvailable });
   
