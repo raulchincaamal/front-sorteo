@@ -8,7 +8,10 @@ module.exports = {
     extend: {
       colors: {
         'primary-macro': '#0047ba',
-        'secondary-macro': '#4b5468'
+        'secondary-macro': '#4b5468',
+        'gray-macro': '#A1ADC0',
+        'gray-400-macro': '#DEE3EA',
+        'midnight-macro': '#555E6B'
       },
       height: {
         '81': '21rem'

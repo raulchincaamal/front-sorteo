@@ -5,7 +5,7 @@ import { IWinningPerson } from '../interfaces';
 import WinningPerson from './WinningPerson';
 import macroLogo from '../assets/img/macro-logo.png';
 import { useState } from 'react';
-import { downloadWins } from '../api/raffleAPI';
+import { downloadWins, exportWinningPeople } from '../api/raffleAPI';
 import { downloadFile } from '../utils';
 
 const WinningPeople = () => {
@@ -26,7 +26,7 @@ const WinningPeople = () => {
     // const { data } = await downloadWins();
     // downloadFile(data);
     // setDisabled(false);
-    window.open('http://3.80.182.17:3000/api/sorteo/exportar');
+    window.open(exportWinningPeople);
   };
 
   return (
