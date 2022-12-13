@@ -16,6 +16,9 @@ module.exports = {
       height: {
         '81': '21rem'
       },
+      backgroundImage: {
+        'christmas': 'url("/src/assets/img/background.png")'
+      }
     },
   },
   plugins: [],
