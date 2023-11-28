@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IGift } from "../interfaces";
 
-const BASE_URL_API = "http://ALB-SORTEO-MP-1384203956.us-east-1.elb.amazonaws.com:3000/api"; // "https://z20bt3i5pe.execute-api.us-east-1.amazonaws.com/dev/api";
+const BASE_URL_API = "http://alb-sorteo-api-qa-9491160.us-east-1.elb.amazonaws.com:3000/api";
 const baseApi = axios.create({
   baseURL: BASE_URL_API,
 });
