@@ -20,7 +20,7 @@ module.exports = {
         '40': "8.75rem",
       },
       backgroundImage: {
-        'winner': 'url("/src/assets/img/winner-background.png")',
+        'winner': 'url("/src/assets/img/winner-background.jpg")',
         'form': 'url("/src/assets/img/form-background.png")'
       }
     },

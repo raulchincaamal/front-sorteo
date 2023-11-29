@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Confetti from '../assets/anim/confetti.json';
 import { IWinningPerson } from '../interfaces';
 import WinningPerson from './WinningPerson';
+import congratulationLabel from '../assets/img/congratulation-label.png';
 import { exportWinningPeople } from '../api/raffleAPI';
 
 const WinningPeople = () => {
@@ -29,8 +30,9 @@ const WinningPeople = () => {
         <Lottie animationData={Confetti} className="w-100" />
         <Lottie animationData={Confetti} className="w-100" />
       </div>
-      <div className="flex flex-col items-center mb-6 mt-40">
-        <h2 className="text-4xl font-bold mt-6 text-cyan-50">Ganadores</h2>
+      <div className="flex flex-col items-center mb-6">
+      <img className="w-70" src={congratulationLabel} alt="congratulation-label" />
+        <h2 className="text-4xl font-bold mt-2 text-cyan-50">Ganadores</h2>
         <h5 className="text-style text-xl text-cyan-50">Premio: {giftName}</h5>
       </div>
       <div
@@ -38,7 +40,7 @@ const WinningPeople = () => {
           containsMorePeople
             ? 'grid grid-cols-2 gap-x-4 gap-y-4 auto-rows-max'
             : 'flex flex-col gap-4'
-        } mb-4 h-81 overflow-auto z-10`}
+        } mb-8 h-81 overflow-auto z-10`}
       >
         {winningPeople.map(
           ({ id_personal, nombre_personal, puesto_personal }, index) => (
