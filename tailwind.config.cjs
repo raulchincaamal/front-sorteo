@@ -16,8 +16,12 @@ module.exports = {
       height: {
         '81': '21rem'
       },
+      margin: {
+        '40': "8.75rem",
+      },
       backgroundImage: {
-        'christmas': 'url("/src/assets/img/background.png")'
+        'winner': 'url("/src/assets/img/winner-background.png")',
+        'form': 'url("/src/assets/img/form-background.png")'
       }
     },
   },

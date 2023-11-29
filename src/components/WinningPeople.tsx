@@ -3,17 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Confetti from '../assets/anim/confetti.json';
 import { IWinningPerson } from '../interfaces';
 import WinningPerson from './WinningPerson';
-import macroLogo from '../assets/img/macro-logo.png';
-import { useState } from 'react';
-import { downloadWins, exportWinningPeople } from '../api/raffleAPI';
-import { downloadFile } from '../utils';
+import { exportWinningPeople } from '../api/raffleAPI';
 
 const WinningPeople = () => {
   const navigate = useNavigate();
-  const [disabled, setDisabled] = useState(false);
   const giftName = localStorage.getItem('gift-name');
   const winningPeople = (JSON.parse(
-    localStorage.getItem('winning-people') || ''
+    localStorage.getItem('winning-people') ?? ''
   ) || []) as IWinningPerson[];
 
   const containsMorePeople = winningPeople.length > 5;
@@ -22,25 +18,20 @@ const WinningPeople = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    // setDisabled(true);
-    // const { data } = await downloadWins();
-    // downloadFile(data);
-    // setDisabled(false);
     window.open(exportWinningPeople);
   };
 
   return (
     <div
-      className="relative flex flex-col items-center pt-4 p-6 min-h-screen bg-no-repeat bg-center bg-cover bg-christmas"
+      className="relative flex flex-col items-center pt-4 p-6 min-h-screen bg-no-repeat bg-cover bg-winner"
     >
       <div className="flex gap-4 absolute z-0 top-0 bottom-0">
         <Lottie animationData={Confetti} className="w-100" />
         <Lottie animationData={Confetti} className="w-100" />
       </div>
-      <div className="flex flex-col items-center mb-6">
-        <img className="w-60" src={macroLogo} alt="macroLogo" />
-        <h2 className="text-4xl font-bold mt-6">Ganadores</h2>
-        <h5 className="text-style text-2xl">Premio: {giftName}</h5>
+      <div className="flex flex-col items-center mb-6 mt-40">
+        <h2 className="text-4xl font-bold mt-6 text-cyan-50">Ganadores</h2>
+        <h5 className="text-style text-xl text-cyan-50">Premio: {giftName}</h5>
       </div>
       <div
         className={`${
@@ -64,7 +55,6 @@ const WinningPeople = () => {
         <button
           className="btn-secondary w-64 z-10 text-primary-macro flex gap-1"
           onClick={handleDownloadWinningPeople}
-          disabled={disabled}
         >
           <span>Lista de ganadores</span>
           <svg
@@ -83,7 +73,6 @@ const WinningPeople = () => {
         <button
           className="btn-primary w-64 z-10"
           onClick={() => navigate('/')}
-          disabled={disabled}
         >
           Nuevo sorteo
         </button>
